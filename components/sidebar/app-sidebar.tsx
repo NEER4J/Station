@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Command } from "lucide-react";
+import { Fuel } from "lucide-react";
 
 import {
   Sidebar,
@@ -41,7 +41,7 @@ export function AppSidebar({
             isCollapsed ? "justify-center px-2" : "gap-2 px-4"
           )}
         >
-          <Command className="size-5 shrink-0" />
+          <Fuel className="size-5 shrink-0 text-green-800 dark:text-green-400" aria-hidden />
           <span
             className={cn(
               "text-base font-semibold transition-opacity",

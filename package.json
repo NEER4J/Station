@@ -1,5 +1,5 @@
 {
-  "name": "saas-starter-template",
+  "name": "stationiq",
   "private": true,
   "scripts": {
     "dev": "next dev",

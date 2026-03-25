@@ -1,6 +1,6 @@
 import {
   LayoutDashboard,
-  FileText,
+  LineChart,
   Database,
   Users,
   MessageSquare,
@@ -37,24 +37,24 @@ export interface NavGroup {
 export const sidebarItems: NavGroup[] = [
   {
     id: 1,
-    label: "Dashboards",
+    label: "Station",
     items: [
       {
-        title: "Dashboards",
+        title: "Overview",
         url: "/dashboard",
         icon: LayoutDashboard,
       },
       {
-        title: "Reports",
+        title: "Sales & profit",
         url: "/dashboard/reports",
-        icon: FileText,
+        icon: LineChart,
         subItems: [
           {
-            title: "All Reports",
+            title: "All reports",
             url: "/dashboard/reports",
           },
           {
-            title: "Create Report",
+            title: "New report",
             url: "/dashboard/reports/create",
           },
           {
@@ -64,7 +64,7 @@ export const sidebarItems: NavGroup[] = [
         ],
       },
       {
-        title: "Data",
+        title: "Inventory",
         url: "/dashboard/data",
         icon: Database,
         subItems: [
@@ -73,37 +73,37 @@ export const sidebarItems: NavGroup[] = [
             url: "/dashboard/data/connections",
           },
           {
-            title: "CSV Uploads",
+            title: "CSV uploads",
             url: "/dashboard/data/uploads",
           },
           {
-            title: "Sync Logs",
+            title: "Sync logs",
             url: "/dashboard/data/sync-logs",
           },
         ],
       },
       {
-        title: "Clients",
+        title: "Accounts",
         url: "/dashboard/clients",
         icon: Users,
         subItems: [
           {
-            title: "Client List",
+            title: "Account list",
             url: "/dashboard/clients",
           },
           {
-            title: "Shareable Links",
+            title: "Shareable links",
             url: "/dashboard/clients/shareable-links",
           },
         ],
       },
       {
-        title: "Chat",
+        title: "Messages",
         url: "/dashboard/chat",
         icon: MessageSquare,
       },
       {
-        title: "Branding",
+        title: "Station appearance",
         url: "/dashboard/branding",
         icon: Palette,
       },

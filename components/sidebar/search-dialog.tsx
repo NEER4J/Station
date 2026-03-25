@@ -94,7 +94,7 @@ export function SearchDialog() {
         </kbd>
       </Button>
       <CommandDialog open={open} onOpenChange={setOpen}>
-        <CommandInput placeholder="Search reports, data, clients, and more…" />
+        <CommandInput placeholder="Search inventory, sales, accounts, and more…" />
         <CommandList>
           <CommandEmpty>No results found.</CommandEmpty>
           {[...new Set(searchItems.map((item) => item.group))].map((group, i) => (

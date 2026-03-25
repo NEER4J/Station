@@ -10,15 +10,15 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "bg-blue-600 dark:bg-blue-500 text-white shadow hover:bg-blue-700 dark:hover:bg-blue-600",
+          "bg-green-800 dark:bg-green-700 text-white hover:bg-green-900 dark:hover:bg-green-600",
         destructive:
-          "bg-red-600 dark:bg-red-500 text-white shadow-sm hover:bg-red-700 dark:hover:bg-red-600",
+          "bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 dark:hover:bg-red-600",
         outline:
-          "border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 shadow-sm hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-50",
+          "border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-50",
         secondary:
-          "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-50 shadow-sm hover:bg-gray-200 dark:hover:bg-gray-700",
+          "bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-50 hover:bg-gray-200 dark:hover:bg-gray-700",
         ghost: "hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-gray-50",
-        link: "text-blue-600 dark:text-blue-400 underline-offset-4 hover:underline",
+        link: "text-green-800 dark:text-green-400 underline-offset-4 hover:underline",
       },
       size: {
         default: "h-9 px-4 py-2",
