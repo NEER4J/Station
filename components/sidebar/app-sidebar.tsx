@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 
-import { Fuel } from "lucide-react";
+import { Gauge } from "lucide-react";
 
 import {
   Sidebar,
@@ -33,7 +33,7 @@ export function AppSidebar({
 
   return (
     <Sidebar {...props}>
-      <SidebarHeader className="h-12 border-b border-gray-200 dark:border-gray-800 p-0">
+      <SidebarHeader className="h-12 shadow-sm p-0">
         <Link
           href="/dashboard"
           className={cn(
@@ -41,7 +41,7 @@ export function AppSidebar({
             isCollapsed ? "justify-center px-2" : "gap-2 px-4"
           )}
         >
-          <Fuel className="size-5 shrink-0 text-green-800 dark:text-green-400" aria-hidden />
+          <Gauge className="size-5 shrink-0 text-gray-900" aria-hidden />
           <span
             className={cn(
               "text-base font-semibold transition-opacity",

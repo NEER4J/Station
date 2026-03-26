@@ -1,5 +1,5 @@
 {
-  "name": "stationiq",
+  "name": "station-jet",
   "private": true,
   "scripts": {
     "dev": "next dev",

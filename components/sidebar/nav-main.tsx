@@ -58,17 +58,26 @@ const NavItemExpanded = ({
               {item.comingSoon && <IsComingSoon />}
               <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
             </SidebarMenuButton>
+          ) : item.comingSoon ? (
+            <SidebarMenuButton
+              disabled
+              isActive={false}
+              tooltip={item.title}
+              className="opacity-50 cursor-not-allowed"
+            >
+              {item.icon && <item.icon />}
+              <span>{item.title}</span>
+              <IsComingSoon />
+            </SidebarMenuButton>
           ) : (
             <SidebarMenuButton
               asChild
-              aria-disabled={item.comingSoon}
               isActive={isActive(item.url)}
               tooltip={item.title}
             >
               <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
                 {item.icon && <item.icon />}
                 <span>{item.title}</span>
-                {item.comingSoon && <IsComingSoon />}
               </Link>
             </SidebarMenuButton>
           )}
@@ -78,13 +87,20 @@ const NavItemExpanded = ({
             <SidebarMenuSub>
               {item.subItems.map((subItem) => (
                 <SidebarMenuSubItem key={subItem.title}>
-                  <SidebarMenuSubButton aria-disabled={subItem.comingSoon} isActive={isActive(subItem.url)} asChild>
-                    <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
+                  {subItem.comingSoon ? (
+                    <SidebarMenuSubButton isActive={false} className="opacity-50 cursor-not-allowed">
                       {subItem.icon && <subItem.icon />}
                       <span>{subItem.title}</span>
-                      {subItem.comingSoon && <IsComingSoon />}
-                    </Link>
-                  </SidebarMenuSubButton>
+                      <IsComingSoon />
+                    </SidebarMenuSubButton>
+                  ) : (
+                    <SidebarMenuSubButton isActive={isActive(subItem.url)} asChild>
+                      <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
+                        {subItem.icon && <subItem.icon />}
+                        <span>{subItem.title}</span>
+                      </Link>
+                    </SidebarMenuSubButton>
+                  )}
                 </SidebarMenuSubItem>
               ))}
             </SidebarMenuSub>
@@ -118,20 +134,28 @@ const NavItemCollapsed = ({
         </DropdownMenuTrigger>
         <DropdownMenuContent className="w-50 space-y-1" side="right" align="start">
           {item.subItems?.map((subItem) => (
-            <DropdownMenuItem key={subItem.title} asChild>
-              <SidebarMenuSubButton
-                key={subItem.title}
-                asChild
-                className="focus-visible:ring-0"
-                aria-disabled={subItem.comingSoon}
-                isActive={isActive(subItem.url)}
-              >
-                <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
+            <DropdownMenuItem key={subItem.title} asChild disabled={subItem.comingSoon}>
+              {subItem.comingSoon ? (
+                <SidebarMenuSubButton
+                  className="opacity-50 cursor-not-allowed focus-visible:ring-0"
+                  isActive={false}
+                >
                   {subItem.icon && <subItem.icon className="text-gray-900 dark:text-gray-50" />}
                   <span>{subItem.title}</span>
-                  {subItem.comingSoon && <IsComingSoon />}
-                </Link>
-              </SidebarMenuSubButton>
+                  <IsComingSoon />
+                </SidebarMenuSubButton>
+              ) : (
+                <SidebarMenuSubButton
+                  asChild
+                  className="focus-visible:ring-0"
+                  isActive={isActive(subItem.url)}
+                >
+                  <Link href={subItem.url} target={subItem.newTab ? "_blank" : undefined}>
+                    {subItem.icon && <subItem.icon className="text-gray-900 dark:text-gray-50" />}
+                    <span>{subItem.title}</span>
+                  </Link>
+                </SidebarMenuSubButton>
+              )}
             </DropdownMenuItem>
           ))}
         </DropdownMenuContent>
@@ -169,17 +193,28 @@ export function NavMain({ items }: NavMainProps) {
                   if (!item.subItems) {
                     return (
                       <SidebarMenuItem key={item.title}>
-                        <SidebarMenuButton
-                          asChild
-                          aria-disabled={item.comingSoon}
-                          tooltip={item.title}
-                          isActive={isItemActive(item.url)}
-                        >
-                          <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
+                        {item.comingSoon ? (
+                          <SidebarMenuButton
+                            disabled
+                            tooltip={item.title}
+                            isActive={false}
+                            className="opacity-50 cursor-not-allowed"
+                          >
                             {item.icon && <item.icon />}
                             <span>{item.title}</span>
-                          </Link>
-                        </SidebarMenuButton>
+                          </SidebarMenuButton>
+                        ) : (
+                          <SidebarMenuButton
+                            asChild
+                            tooltip={item.title}
+                            isActive={isItemActive(item.url)}
+                          >
+                            <Link href={item.url} target={item.newTab ? "_blank" : undefined}>
+                              {item.icon && <item.icon />}
+                              <span>{item.title}</span>
+                            </Link>
+                          </SidebarMenuButton>
+                        )}
                       </SidebarMenuItem>
                     );
                   }

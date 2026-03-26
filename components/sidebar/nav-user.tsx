@@ -2,8 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import { toast } from "sonner";
-import { EllipsisVertical, CircleUser, CreditCard, MessageSquareDot, LogOut, Moon, Sun } from "lucide-react";
-import { useTheme } from "next-themes";
+import { EllipsisVertical, Settings, LogOut } from "lucide-react";
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import {
@@ -31,13 +30,6 @@ export function NavUser({
   const { isMobile } = useSidebar();
   const { signOut } = useAuth();
   const router = useRouter();
-  const { theme, setTheme } = useTheme();
-
-  const handleThemeToggle = () => {
-    const newTheme = theme === "dark" ? "light" : "dark";
-    setTheme(newTheme);
-  };
-
   const handleSignOut = async () => {
     const { error } = await signOut();
     
@@ -58,7 +50,7 @@ export function NavUser({
           <DropdownMenuTrigger asChild>
             <SidebarMenuButton
               size="lg"
-              className="data-[state=open]:bg-gray-100 dark:data-[state=open]:bg-gray-800 data-[state=open]:text-gray-900 dark:data-[state=open]:text-gray-50"
+              className="data-[state=open]:bg-gray-100 data-[state=open]:text-gray-900"
             >
               <Avatar className="h-8 w-8 rounded-lg grayscale">
                 <AvatarImage src={user.avatar || undefined} alt={user.name} />
@@ -66,7 +58,7 @@ export function NavUser({
               </Avatar>
               <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
-                <span className="text-gray-500 dark:text-gray-400 truncate text-xs">{user.email}</span>
+                <span className="text-gray-500 truncate text-xs">{user.email}</span>
               </div>
               <EllipsisVertical className="ml-auto size-4" />
             </SidebarMenuButton>
@@ -85,30 +77,17 @@ export function NavUser({
                 </Avatar>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-medium">{user.name}</span>
-                  <span className="text-gray-500 dark:text-gray-400 truncate text-xs">{user.email}</span>
+                  <span className="text-gray-500 truncate text-xs">{user.email}</span>
                 </div>
               </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
             <DropdownMenuGroup>
-              <DropdownMenuItem>
-                <CircleUser />
-                Account
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <CreditCard />
-                Billing
-              </DropdownMenuItem>
-              <DropdownMenuItem>
-                <MessageSquareDot />
-                Notifications
+              <DropdownMenuItem onClick={() => router.push("/dashboard/system_settings")} className="cursor-pointer">
+                <Settings />
+                System Settings
               </DropdownMenuItem>
             </DropdownMenuGroup>
-            <DropdownMenuSeparator />
-            <DropdownMenuItem onClick={handleThemeToggle}>
-              {theme === "dark" ? <Sun /> : <Moon />}
-              {theme === "dark" ? "Light Mode" : "Dark Mode"}
-            </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleSignOut}>
               <LogOut />

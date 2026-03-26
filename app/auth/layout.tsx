@@ -1,6 +1,6 @@
 import { ReactNode } from "react";
 
-import { Fuel } from "lucide-react";
+import { Gauge } from "lucide-react";
 
 import { Separator } from "@/components/ui/separator";
 import { APP_CONFIG } from "@/config/app-config";
@@ -9,10 +9,10 @@ export default function Layout({ children }: Readonly<{ children: ReactNode }>) 
   return (
     <main>
       <div className="grid h-dvh justify-center p-2 lg:grid-cols-2">
-        <div className="relative order-2 hidden h-full overflow-hidden rounded-3xl bg-green-800 dark:bg-green-950 lg:flex">
+        <div className="relative order-2 hidden h-full overflow-hidden rounded-3xl bg-gray-900 lg:flex">
           <div className="relative z-10 flex w-full flex-col">
             <div className="absolute top-10 space-y-2 px-10 text-white">
-              <Fuel className="size-10" aria-hidden />
+              <Gauge className="size-10" aria-hidden />
               <h1 className="text-2xl font-medium">{APP_CONFIG.name}</h1>
               <p className="text-sm font-medium text-white/90">{APP_CONFIG.tagline}</p>
               <p className="max-w-md text-sm text-white/80">{APP_CONFIG.meta.description}</p>
