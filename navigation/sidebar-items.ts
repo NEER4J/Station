@@ -16,6 +16,7 @@ import {
   FileStack,
   Droplets,
   Upload,
+  FileJson,
   ShieldCheck,
   Map,
   Store,
@@ -102,6 +103,12 @@ export const sidebarItems: NavGroup[] = [
         url: "/dashboard/price_book_settings",
         icon: Settings,
       },
+      {
+        title: "BT9000 Import",
+        url: "/dashboard/bt9000_import",
+        icon: Upload,
+        isNew: true,
+      },
     ],
   },
   {
@@ -181,6 +188,12 @@ export const sidebarItems: NavGroup[] = [
           {
             title: "Fuel Tank Import",
             url: "/dashboard/fuel_tank_import",
+          },
+          {
+            title: "Pump Report Import",
+            url: "/dashboard/pump_report_import",
+            icon: FileJson,
+            isNew: true,
           },
         ],
       },
